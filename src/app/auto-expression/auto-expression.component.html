@@ -1,0 +1,93 @@
+<div class="container">
+  <div class="row">
+    <div class="form-group">
+      <label for="expression">Expression</label>
+      <input
+        type="text"
+        class="form-control"
+        name="expression"
+        id="expression"
+        placeholder="expression"
+        [(ngModel)]="selectedItem"
+        (keyup)="handleInput($event)"
+      />
+      <div 
+      *ngIf="hintItems"
+      style="
+        max-height: 300px;
+        width: 100%;
+        border: 1px solid lightgray;
+        top: 32px;
+        overflow-y: auto;
+      ">
+
+      <div class="item hover border px-2" style="height: 30px;width: 100%;"
+      *ngFor="let hint of hintItems"
+      (click)="onSelectedItem(hint)">
+      {{hint["operandName"]}}
+      </div>
+
+     </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-6">
+      <div class="form-group">
+        <label for="function">Function</label>
+        <input
+          type="text"
+          class="form-control"
+          name="function"
+          id="function"
+          placeholder="Function"
+          [(ngModel)]="functionInput"
+        />
+        <div
+          *ngIf="functionItems"
+          style="
+            max-height: 300px;
+            width: 100%;
+            border: 1px solid lightgray;
+            top: 32px;
+            overflow-y: auto;
+          "
+        >
+        <div class="item hover border px-2" style="height: 30px;width: 100%;"
+        *ngFor="let function of functionItems"
+        (click)="onSelectedItem(function)">
+        {{function["operandName"]}}
+        </div>
+    </div>
+      </div>
+    </div>
+    <div class="col-6">
+      <div class="form-group">
+        <label for="operator">Operator</label>
+        <input
+          type="text"
+          class="form-control"
+          name="operator"
+          id="operator"
+          placeholder="Operator"
+          [(ngModel)]="operatorInput"
+        />
+
+        <div
+          *ngIf="functionItems"
+          style="
+            max-height: 300px;
+            width: 100%;
+            border: 1px solid lightgray;
+            top: 32px;
+            overflow-y: auto;
+          "
+        >
+        <div class="item hover border px-2" style="height: 30px;width: 100%;"
+        *ngFor="let operator of operatorItems"
+        (click)="onSelectedItem(operator)">
+        {{operator["operandName"]}}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
